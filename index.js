@@ -3,7 +3,7 @@ let toDoList = document.querySelector("#ToDoActivities")
 let toDoInput = document.querySelector("#addToDo")
 
 window.addEventListener("load", (event) => {
-    test()
+    addDeleteListener()
 });
 
 toDoInput.addEventListener("keyup", function(event) {
@@ -12,13 +12,13 @@ toDoInput.addEventListener("keyup", function(event) {
         toDoAct.innerHTML=`<span><i class="fa fa-trash"></i></span> ${toDoInput.value}`
         toDoList.appendChild(toDoAct)
         toDoInput.value = "";
-        test()
+        addDeleteListener()
     }
 })
 
 let trashIcons = document.getElementsByClassName("fa fa-trash");
 let trashBackground = document.getElementsByTagName("span");
-function test(){
+function addDeleteListener(){
     for(let i=0;i<trashIcons.length;i++){
         trashIcons[i].addEventListener("click",(event)=>{
             event.target.parentElement.parentElement.remove()
